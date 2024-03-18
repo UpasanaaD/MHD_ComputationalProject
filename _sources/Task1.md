@@ -67,7 +67,7 @@ $$
 \end{array}\right\} \Rightarrow \frac{d \vec{y}}{d x}=\vec{f}(\vec{y}, x)
 $$
 
-where $$\vec{y}=\left(y_1, y_2, \ldots, y_n\right)$$ and $$\vec{f}=\left(f_1, f_2, \ldots, f_n\right)$$. The vector sign simply implies collection variables. In such case the RK4 equations take the forms,
+where $\vec{y}=\left(y_1, y_2, \ldots, y_n\right)$ and $\vec{f}=\left(f_1, f_2, \ldots, f_n\right)$. The vector sign simply implies collection variables. In such case the RK4 equations take the forms,
 
 $$
 \begin{aligned}
@@ -79,6 +79,6 @@ $$
 \end{aligned}
 $$
 
-where $$\vec{y}_i$$ are the values at the $$i$$-th interval boundary. 
+where $\vec{y}_i$ are the values at the $i$-th interval boundary. 
 
 The codes for the same can be accessed on: [github](https://github.com/UpasanaaD/Plasma-Physics-MHD)
