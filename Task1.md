@@ -20,7 +20,7 @@ $$
 \frac{\partial \bar{B}}{\partial t}=-\nabla \times (\eta_T \nabla \times \bar{B}).
 $$
 
-Where $$\eta_T = \eta + \eta_t $$, $$\eta$$ being the microscopic diffusivity and $$\eta_t$$ being the turbulent diffusivity, is assumed constant. Thus,
+Where $\eta_T = \eta + \eta_t $, $\eta$ being the microscopic diffusivity and $\eta_t$ being the turbulent diffusivity, is assumed constant. Thus,
 
 $$
 \frac{\partial \bar{B}}{\partial t}=-\eta_T \nabla^2 \bar{B}
@@ -32,7 +32,7 @@ $$
 \frac{\partial B_i}{\partial t}=\eta_T\left\{\frac{\partial}{\partial r}\left[\frac{1}{2} \frac{\partial}{\partial r}\left(r B_i\right)\right]-\frac{\partial B_i}{\partial z^2}\right\}
 $$
 
-Now, we make use of the no-z approximation and replace- $$\partial / \partial z \rightarrow \pi / (2h )$$ and $$\partial^2 / \partial z^2 \rightarrow- (\pi / 2h)^2$$.
+Now, we make use of the no-z approximation and replace- $\partial / \partial z \rightarrow \pi / (2h )$ and $\partial^2 / \partial z^2 \rightarrow- (\pi / 2h)^2$.
 
 $$
 
@@ -67,7 +67,7 @@ $$
 \end{array}\right\} \Rightarrow \frac{d \vec{y}}{d x}=\vec{f}(\vec{y}, x)
 $$
 
-where $$\vec{y}=\left(y_1, y_2, \ldots, y_n\right)$$ and $$\vec{f}=\left(f_1, f_2, \ldots, f_n\right)$$. The vector sign simply implies collection variables. In such case the RK4 equations take the forms,
+where $\vec{y}=\left(y_1, y_2, \ldots, y_n\right)$ and $\vec{f}=\left(f_1, f_2, \ldots, f_n\right)$. The vector sign simply implies collection variables. In such case the RK4 equations take the forms,
 
 $$
 \begin{aligned}
@@ -79,6 +79,6 @@ $$
 \end{aligned}
 $$
 
-where $$\vec{y}_i$$ are the values at the $$i$$-th interval boundary. 
+where $\vec{y}_i$ are the values at the $i$-th interval boundary. 
 
 The codes for the same can be accessed on: [github](https://github.com/UpasanaaD/Plasma-Physics-MHD)
