@@ -20,7 +20,7 @@ $$
 \frac{\partial \bar{B}}{\partial t}=-\nabla \times (\eta_T \nabla \times \bar{B}).
 $$
 
-Where $$\eta_T = \eta + \eta_t $$, $$\eta$$ being the microscopic diffusivity and $$\eta_t$$ being the turbulent diffusivity, is assumed constant. Thus,
+Where $\eta_T = \eta + \eta_t $, $\eta$ being the microscopic diffusivity and $\eta_t$ being the turbulent diffusivity, is assumed constant. Thus,
 
 $$
 \frac{\partial \bar{B}}{\partial t}=-\eta_T \nabla^2 \bar{B}
