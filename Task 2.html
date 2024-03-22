@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Overview of project &#8212; MHD - Computational Project</title>
+    <title>Solving the mean-field α-Ω dynamo equations in the kinematic regime. &#8212; MHD - Computational Project</title>
   
   
   
@@ -59,10 +59,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'About';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Task 2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="Intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -142,7 +141,7 @@
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="About.html">
   
   
   
@@ -167,8 +166,8 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="About.html">
                     Overview of project
                 </a>
             </li>
@@ -247,7 +246,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FAbout.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTask 2.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -277,7 +276,7 @@
       
       
       
-      <li><a href="_sources/About.md" target="_blank"
+      <li><a href="_sources/Task 2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +286,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -361,7 +360,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Overview of project</h1>
+    <h1>Solving the mean-field α-Ω dynamo equations in the kinematic regime.</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,9 +370,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-for-b-r-and-b-phi">Solving for <span class="math notranslate nohighlight">\( B_r \)</span> and <span class="math notranslate nohighlight">\( B_\phi \)</span></a></li>
 </ul>
             </nav>
         </div>
@@ -385,47 +382,103 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="overview-of-project">
-<h1>Overview of project<a class="headerlink" href="#overview-of-project" title="Link to this heading">#</a></h1>
-<p>I am Upasana, a 4th year student affiliated to the School of Physical Sciences, National Institute of Science Education and Research, Bhubaneswar India. This computational project is as part of coursework for Plasma Physics and Magnetohydrodynamics taken by Dr Luke Chamandy at the same institute.</p>
-<p>We are expected to solve numerically the mean-field galactic dynamo equations derived using the first order smoothing approximation, $<span class="math notranslate nohighlight">\(E = \alpha B − \eta_T \nabla \times B\)</span>$, in the kinematic regime. The project has been divided into three tasks:</p>
-<section id="task-1">
-<h2>Task 1:<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
-<p>Solving the diffusion equation. That is, the equations omitting the ∇ × (V × B) and α terms, so that the only terms remaining on the RHS are those involving ηt (or ηT = ηt + η, to be precise).</p>
-<ul class="simple">
-<li><p>This task is common to all students, but half of the class is solving the diffusion equation in z and the other half in r (under the no-z approximation). I have been assigned the latter.</p></li>
-<li><p>To explore the evolution of the magnetic field magnitude and of the exponential decay rate.</p></li>
-<li><p>Explore the evolution of the spatial solution for Br and Bφ, and of the pitch angle of the mean
-magnetic field p.</p></li>
-<li><p>Explore how different boundary conditions affect the results.</p></li>
-<li><p>Explore how different seed fields affect the results.</p></li>
-</ul>
-<p>Right now, this website pertains to only Task 1.</p>
-</section>
-<section id="task-2">
-<h2>Task 2:<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
-<p>Solving the mean-field <span class="math notranslate nohighlight">\(\alpha-\Omega\)</span> dynamo equations in the kinematic regime. That is, include the <span class="math notranslate nohighlight">\(\Omega\)</span> effect term in the equation for <span class="math notranslate nohighlight">\(\partial B_\phi/\partial t\)</span> and the <span class="math notranslate nohighlight">\(\alpha \)</span> effect term in the equation for <span class="math notranslate nohighlight">\(\partial B_r/\partial t\)</span>. This requires specifying the overall magnitude and spatial dependence of <span class="math notranslate nohighlight">\(\Omega\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
-<ul class="simple">
-<li><p>Repeat the investigations done for task 1, with the new equations, for different values of the dynamo number,</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
- D = \frac{\alpha_0 q \Omega h^3}{\eta_t^2}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(q = −d ln \Omega/d ln r\)</span> and <span class="math notranslate nohighlight">\(\alpha_0\)</span> &gt; 0 is the amplitude of the <span class="math notranslate nohighlight">\(\alpha\)</span> effect. Note that q &gt; 0 if <span class="math notranslate nohighlight">\(\Omega\)</span> decreases with r, which is generally the case in galaxies, so D &lt; 0.</p>
-<ul class="simple">
-<li><p>The exponential decay becomes exponential growth if |D| &gt; |<span class="math notranslate nohighlight">\(D_c\)</span>|, where <span class="math notranslate nohighlight">\(D_c\)</span> is the critical dynamo number. Find the critical dynamo number numerically (ideally, you would automate this feature).</p></li>
-<li><p>Compare the growth rate you obtain for a given value of D (for |D| &gt; |Dc|) with the no-z solution prediction for the local growth rate γ. Do the same comparison for Dc. Do the results agree with your expectations?</p></li>
-</ul>
-</section>
-<section id="task-3">
-<h2>Task 3:<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
-<p>Will be updated</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Task1.html">Task 1</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="solving-the-mean-field-dynamo-equations-in-the-kinematic-regime">
+<h1>Solving the mean-field α-Ω dynamo equations in the kinematic regime.<a class="headerlink" href="#solving-the-mean-field-dynamo-equations-in-the-kinematic-regime" title="Link to this heading">#</a></h1>
+<section id="solving-for-b-r-and-b-phi">
+<h2>Solving for <span class="math notranslate nohighlight">\( B_r \)</span> and <span class="math notranslate nohighlight">\( B_\phi \)</span><a class="headerlink" href="#solving-for-b-r-and-b-phi" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">anim</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">iv</span><span class="p">,</span><span class="n">kve</span><span class="p">,</span><span class="n">kv</span> <span class="c1">#provides module to compute modified bessel function of 1st kind</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#constants</span>
+<span class="n">eta_t</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># η_T estimated as η_t because η is microscopic</span>
+<span class="n">h</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#typical disk scale in Mpc</span>
+<span class="n">t_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">eta_t</span>
+<span class="n">Omega</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Omega has units of 1/t0</span>
+<span class="n">Alpha</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Alpha has units of h0/t0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">eta_t</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># η_T estimated as η_t because η is microscopic</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">h</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#typical disk scale in Mpc</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">t_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">eta_t</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">Omega</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Omega has units of 1/t0</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Alpha</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">t_0</span>
+
+<span class="ne">NameError</span>: name &#39;h_0&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#GRID PARAMETERS</span>
+
+<span class="c1"># Radial grid</span>
+<span class="n">R_max</span> <span class="o">=</span> <span class="mi">15</span> <span class="c1"># Maximum radial distance(in kpc)</span>
+<span class="n">Nr</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># Increased number of grid points in radial direction</span>
+<span class="n">dr</span> <span class="o">=</span> <span class="n">R_max</span> <span class="o">/</span> <span class="n">Nr</span>
+
+<span class="c1"># Time parameters</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># Increased total time</span>
+<span class="n">Nt</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1">#Total time steps</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="n">Nt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using numpy&#39;s gradient function which itself uses a central differencing method</span>
+<span class="k">def</span> <span class="nf">FDM</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Bi</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">Bi</span><span class="p">,</span> <span class="n">dr</span><span class="p">),</span> <span class="n">dr</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Bi</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RK4</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Bi</span><span class="p">):</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Bi</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k1</span><span class="p">,</span><span class="n">Bi</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k2</span><span class="p">,</span><span class="n">Bi</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="n">k3</span><span class="p">,</span><span class="n">Bi</span> <span class="o">+</span> <span class="n">k3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Bi</span> <span class="o">+</span> <span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initializing radial component of Br using different seed fields</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">R_max</span><span class="p">,</span> <span class="n">Nr</span><span class="p">)</span>
+<span class="n">Br</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">R</span><span class="p">)</span><span class="o">/</span><span class="n">R_max</span><span class="p">)</span>
+<span class="c1">#Br = np.exp(-R/R_max)</span>
+<span class="c1">#Br = np.tanh(R/R_max)</span>
+<span class="c1">#shape = np.shape(R)</span>
+<span class="c1">#Br = np.random.randint(1,5,*shape)</span>
+
+<span class="c1">#Initialising the B_phi field</span>
+<span class="n">B_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">R</span><span class="p">)</span><span class="o">/</span><span class="n">R_max</span><span class="p">)</span>
+<span class="c1">#B_phi = np.exp(R/R_max)</span>
+<span class="c1">#B_phi = np.tanh(-R/R_max)</span>
+<span class="c1">#B_phi = np.random.randint(1,5,*shape)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -460,15 +513,6 @@ magnetic field p.</p></li>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="Intro.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -485,9 +529,7 @@ magnetic field p.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-for-b-r-and-b-phi">Solving for <span class="math notranslate nohighlight">\( B_r \)</span> and <span class="math notranslate nohighlight">\( B_\phi \)</span></a></li>
 </ul>
   </nav></div>
 

@@ -17,7 +17,19 @@ magnetic field p.
 Right now, this website pertains to only Task 1.
 
 ## Task 2:
-Will be updated.
+
+Solving the mean-field $\alpha-\Omega$ dynamo equations in the kinematic regime. That is, include the $\Omega$ effect term in the equation for $\partial B_\phi/\partial t$ and the $\alpha $ effect term in the equation for $\partial B_r/\partial t$. This requires specifying the overall magnitude and spatial dependence of $\Omega$ and $\alpha$.
+
+- Repeat the investigations done for task 1, with the new equations, for different values of the dynamo number,
+
+$$
+ D = \frac{\alpha_0 q \Omega h^3}{\eta_t^2}
+$$
+
+
+where $q = −d ln \Omega/d ln r$ and $\alpha_0$ > 0 is the amplitude of the $\alpha$ effect. Note that q > 0 if $\Omega$ decreases with r, which is generally the case in galaxies, so D < 0.
+- The exponential decay becomes exponential growth if |D| > |$D_c$|, where $D_c$ is the critical dynamo number. Find the critical dynamo number numerically (ideally, you would automate this feature).
+- Compare the growth rate you obtain for a given value of D (for |D| > |Dc|) with the no-z solution prediction for the local growth rate γ. Do the same comparison for Dc. Do the results agree with your expectations?
 
 ## Task 3:
 Will be updated
