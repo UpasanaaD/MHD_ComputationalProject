@@ -577,8 +577,8 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">//</span> <span class="mi">15</span><span class="p">):</span>  
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Br_evolution</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Time = </span><span class="si">{</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Br(mag)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Radial distance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Br(mag)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Radial distance&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spatial evolution of Br at different times&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -588,8 +588,8 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">//</span> <span class="mi">15</span><span class="p">):</span>  
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">B_phi_evolution</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Time = </span><span class="si">{</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;B_Φ(mag)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Radial distance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;B_Φ(mag)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Radial distance&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spatial evolution of B_Φ at different times&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -598,8 +598,47 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/267775622979c14f5d98658fefea560a835762914b2f88bb87af87b7b7877892.png" src="_images/267775622979c14f5d98658fefea560a835762914b2f88bb87af87b7b7877892.png" />
-<img alt="_images/683b406555d117dab3d49a260e95b6542195f4be8989ebfcf644bc3d6acdb0e7.png" src="_images/683b406555d117dab3d49a260e95b6542195f4be8989ebfcf644bc3d6acdb0e7.png" />
+<img alt="_images/71fa82d4b78dff884eb5609473ae522c4f2a41f134ac23149f8939e95c51b9d8.png" src="_images/71fa82d4b78dff884eb5609473ae522c4f2a41f134ac23149f8939e95c51b9d8.png" />
+<img alt="_images/c06846a547595aa57ad896b32a934da137d1a1c1d318b4dc5b40766fd5bd0349.png" src="_images/c06846a547595aa57ad896b32a934da137d1a1c1d318b4dc5b40766fd5bd0349.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># initialize the line</span>
+<span class="n">lineBr</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Br_evolution</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lineBphi</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">B_phi_evolution</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Radial distance&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Magnetic Field (mag)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">R_max</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">lineBr</span><span class="p">,</span> <span class="n">lineBphi</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Br&quot;</span><span class="p">,</span> <span class="s2">&quot;B_phi&quot;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="c1"># initialize the animation</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">R_max</span><span class="p">)</span>
+    <span class="c1">#ax.set_ylim(0, np.max(Br_evolution))</span>
+    <span class="k">return</span> <span class="n">lineBr</span><span class="p">,</span> <span class="n">lineBphi</span><span class="p">,</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="n">lineBr</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Br_evolution</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
+    <span class="n">lineBphi</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">B_phi_evolution</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">lineBr</span><span class="p">,</span> <span class="n">lineBphi</span><span class="p">,</span>
+
+<span class="n">ani</span> <span class="o">=</span> <span class="n">anim</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">Nt</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">)</span>
+<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;animationSine.gif&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MovieWriter ffmpeg unavailable; using Pillow instead.
+</pre></div>
+</div>
+<img alt="_images/12b58bf5674cb8ff6cf2f0ee8e8b30fe0199351db92bca4da0f185038df8a072.png" src="_images/12b58bf5674cb8ff6cf2f0ee8e8b30fe0199351db92bca4da0f185038df8a072.png" />
 </div>
 </div>
 </section>
@@ -697,6 +736,45 @@ document.write(`
 <div class="cell_output docutils container">
 <img alt="_images/7b5959c1668e2ab96179e2c81581a029a09346531484d02d0a87d71e455cc9db.png" src="_images/7b5959c1668e2ab96179e2c81581a029a09346531484d02d0a87d71e455cc9db.png" />
 <img alt="_images/9393120cafb022eecbe99bf34af4c192e2d37b710ebc119f2ad36bffad8398c9.png" src="_images/9393120cafb022eecbe99bf34af4c192e2d37b710ebc119f2ad36bffad8398c9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># initialize the line</span>
+<span class="n">lineBr</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Br_evolution</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lineBphi</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">B_phi_evolution</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Radial distance&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Magnetic Field (mag)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">R_max</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">lineBr</span><span class="p">,</span> <span class="n">lineBphi</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Br&quot;</span><span class="p">,</span> <span class="s2">&quot;B_phi&quot;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="c1"># initialize the animation</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">R_max</span><span class="p">)</span>
+    <span class="c1">#ax.set_ylim(0, np.max(Br_evolution))</span>
+    <span class="k">return</span> <span class="n">lineBr</span><span class="p">,</span> <span class="n">lineBphi</span><span class="p">,</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="n">lineBr</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Br_evolution</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
+    <span class="n">lineBphi</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">B_phi_evolution</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">lineBr</span><span class="p">,</span> <span class="n">lineBphi</span><span class="p">,</span>
+
+<span class="n">ani</span> <span class="o">=</span> <span class="n">anim</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">Nt</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">)</span>
+<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;animationExp.gif&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MovieWriter ffmpeg unavailable; using Pillow instead.
+</pre></div>
+</div>
+<img alt="_images/8a280a193fd249e6cb3f6b742ab42e0b31e1ae3a4b1ef4e9e0abf3455fbc98ec.png" src="_images/8a280a193fd249e6cb3f6b742ab42e0b31e1ae3a4b1ef4e9e0abf3455fbc98ec.png" />
 </div>
 </div>
 </section>
