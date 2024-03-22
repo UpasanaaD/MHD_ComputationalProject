@@ -378,6 +378,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-method">Finite Difference Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kutta-method-rk4">Runge Kutta Method (RK4)</a></li>
 </ul>
             </nav>
         </div>
@@ -419,17 +420,24 @@ document.write(`
 f^{1}_i = (-f_{i-3} + 9 f_{i-2} - 45 f_{i-1} + 45 f_{i+1} - 9 f_{i+2} + f_{i+3})/(60 \delta x)
 \]</div>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
+\[
 f^{2}_i = (2f_{i-3} -27 f_{i-2} + 270f_{i-1} - 490f_{i} + 270f_{i+1} - 27f_{i+2} + 2f_{i+3})/(180\delta x^2)
-$$ `` {cite}`Brandenburg:2001wi` ``\\### Runge Kutta Method (RK4)
-The Runge-Kutta method is a widely used numerical technique for solving initial-value problems of differential equations without the need for high-order derivatives of functions. The RK4 method, or the fourth-order Runge-Kutta method, is one of the most commonly used Runge-Kutta methods for solving differential equations. \\We can generalized the RK4 solution to $n$-coupled first order ODE as-\end{aligned}\end{align} \]</div>
-<p>\left.\begin{array}{rl}
-\frac{d y_1}{d x} &amp; =f_1\left(y_1, y_2, \ldots, y_n, x\right) \
-\frac{d y_2}{d x} &amp; =f_2\left(y_1, y_2, \ldots, y_n, x\right) \
-&amp; \vdots \
+\]</div>
+<p><code class="docutils literal notranslate"><span class="pre">{cite}`Brandenburg:2001wi`</span></code></p>
+</section>
+<section id="runge-kutta-method-rk4">
+<h2>Runge Kutta Method (RK4)<a class="headerlink" href="#runge-kutta-method-rk4" title="Link to this heading">#</a></h2>
+<p>The Runge-Kutta method is a widely used numerical technique for solving initial-value problems of differential equations without the need for high-order derivatives of functions. The RK4 method, or the fourth-order Runge-Kutta method, is one of the most commonly used Runge-Kutta methods for solving differential equations.</p>
+<p>We can generalized the RK4 solution to <span class="math notranslate nohighlight">\(n\)</span>-coupled first order ODE as-</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left.\begin{array}{rl}
+\frac{d y_1}{d x} &amp; =f_1\left(y_1, y_2, \ldots, y_n, x\right) \\
+\frac{d y_2}{d x} &amp; =f_2\left(y_1, y_2, \ldots, y_n, x\right) \\
+&amp; \vdots \\
 \frac{d y_n}{d x} &amp; =f_n\left(y_1, y_2, \ldots, y_n, x\right)
-\end{array}\right} \Rightarrow \frac{d \vec{y}}{d x}=\vec{f}(\vec{y}, x)
-$$</p>
+\end{array}\right\} \Rightarrow \frac{d \vec{y}}{d x}=\vec{f}(\vec{y}, x)
+\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vec{y}=\left(y_1, y_2, \ldots, y_n\right)\)</span> and <span class="math notranslate nohighlight">\(\vec{f}=\left(f_1, f_2, \ldots, f_n\right)\)</span>. The vector sign simply implies collection variables. In such case the RK4 equations take the forms,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -513,6 +521,7 @@ $$</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-method">Finite Difference Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kutta-method-rk4">Runge Kutta Method (RK4)</a></li>
 </ul>
   </nav></div>
 

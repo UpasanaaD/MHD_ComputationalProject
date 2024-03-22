@@ -51,7 +51,8 @@ $$
 
 $$
 f^{2}_i = (2f_{i-3} -27 f_{i-2} + 270f_{i-1} - 490f_{i} + 270f_{i+1} - 27f_{i+2} + 2f_{i+3})/(180\delta x^2)
-$$ `` {cite}`Brandenburg:2001wi` ``
+$$ 
+`` {cite}`Brandenburg:2001wi` ``
 
 ### Runge Kutta Method (RK4)
 The Runge-Kutta method is a widely used numerical technique for solving initial-value problems of differential equations without the need for high-order derivatives of functions. The RK4 method, or the fourth-order Runge-Kutta method, is one of the most commonly used Runge-Kutta methods for solving differential equations. 
