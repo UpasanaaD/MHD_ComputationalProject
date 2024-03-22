@@ -13,3 +13,4 @@ kernelspec:
 ---
 
 # Task 2
+As a part of this task, we are to solve the mean-field $\alpha-\omega$ dynamo equations in the kinematic regime. 
