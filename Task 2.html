@@ -407,24 +407,24 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#constants</span>
 <span class="n">eta_t</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># η_T estimated as η_t because η is microscopic</span>
-<span class="n">h</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#typical disk scale in Mpc</span>
+<span class="n">h_0</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#typical disk scale in Mpc</span>
 <span class="n">t_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">eta_t</span>
 <span class="n">Omega</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Omega has units of 1/t0</span>
 <span class="n">Alpha</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Alpha has units of h0/t0</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">eta_t</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># η_T estimated as η_t because η is microscopic</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">h</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#typical disk scale in Mpc</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">t_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">eta_t</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">t_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">eta_t</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">Omega</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Omega has units of 1/t0</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Alpha</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">t_0</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">Alpha</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Alpha has units of h0/t0</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="ne">NameError</span>: name &#39;h_0&#39; is not defined
+<span class="ne">NameError</span>: name &#39;h&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -448,21 +448,46 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using numpy&#39;s gradient function which itself uses a central differencing method</span>
-<span class="k">def</span> <span class="nf">FDM</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Bi</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">Bi</span><span class="p">,</span> <span class="n">dr</span><span class="p">),</span> <span class="n">dr</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Bi</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boundary_condition</span><span class="p">(</span><span class="n">Br</span><span class="p">,</span> <span class="n">B_phi</span><span class="p">):</span>
+    <span class="n">Br</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">B_phi</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Br</span><span class="p">[</span><span class="n">Nr</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">B_phi</span><span class="p">[</span><span class="n">Nr</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RK4</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Bi</span><span class="p">):</span>
-    <span class="n">k1</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Bi</span><span class="p">)</span>
-    <span class="n">k2</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k1</span><span class="p">,</span><span class="n">Bi</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k1</span><span class="p">)</span>
-    <span class="n">k3</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k2</span><span class="p">,</span><span class="n">Bi</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k2</span><span class="p">)</span>
-    <span class="n">k4</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="n">k3</span><span class="p">,</span><span class="n">Bi</span> <span class="o">+</span> <span class="n">k3</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Bi</span> <span class="o">+</span> <span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using numpy&#39;s gradient function which itself uses a central differencing method</span>
+<span class="k">def</span> <span class="nf">FDM_r</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Br</span><span class="p">,</span><span class="n">B_phi</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">Br</span><span class="p">,</span> <span class="n">dr</span><span class="p">),</span> <span class="n">dr</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Br</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">Alpha</span><span class="o">*</span><span class="n">B_phi</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">h_0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">FDM_phi</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">B_r</span><span class="p">,</span><span class="n">B_phi</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">B_phi</span><span class="p">,</span> <span class="n">dr</span><span class="p">),</span> <span class="n">dr</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">B_phi</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">q</span><span class="o">*</span><span class="n">Omega</span><span class="o">*</span><span class="n">Br</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RK4</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Br</span><span class="p">,</span><span class="n">B_phi</span><span class="p">):</span>
+    <span class="n">k1_r</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM_r</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Br</span><span class="p">,</span><span class="n">B_phi</span><span class="p">)</span>
+    <span class="n">k1_phi</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM_phi</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Br</span><span class="p">,</span><span class="n">B_phi</span><span class="p">)</span>
+    
+    <span class="n">k2_r</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM_r</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k1_r</span><span class="p">,</span><span class="n">Br</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k1_r</span><span class="p">,</span><span class="n">B_phi</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k1_phi</span><span class="p">)</span>
+    <span class="n">k2_phi</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM_phi</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k1_phi</span><span class="p">,</span><span class="n">Br</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k1_r</span><span class="p">,</span><span class="n">B_phi</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k1_phi</span><span class="p">)</span>
+    
+    <span class="n">k3_r</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM_r</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k2_r</span><span class="p">,</span><span class="n">Br</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k2_r</span><span class="p">,</span><span class="n">B_phi</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k2_phi</span><span class="p">)</span>
+    <span class="n">k3_phi</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM_phi</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k2_phi</span><span class="p">,</span><span class="n">Br</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k2_r</span><span class="p">,</span><span class="n">B_phi</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k2_phi</span><span class="p">)</span>
+    
+    <span class="n">k4_r</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM_r</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="n">k3_r</span><span class="p">,</span><span class="n">Br</span> <span class="o">+</span> <span class="n">k3_r</span><span class="p">,</span><span class="n">B_phi</span> <span class="o">+</span> <span class="n">k3_phi</span><span class="p">)</span>
+    <span class="n">k4_phi</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">FDM_phi</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="n">k3_phi</span><span class="p">,</span><span class="n">Br</span> <span class="o">+</span> <span class="n">k3_r</span><span class="p">,</span><span class="n">B_phi</span> <span class="o">+</span> <span class="n">k3_phi</span><span class="p">)</span>
+    
+    <span class="n">Br_next</span> <span class="o">=</span> <span class="n">Br</span> <span class="o">+</span> <span class="p">(</span><span class="n">k1_r</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k2_r</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k3_r</span> <span class="o">+</span> <span class="n">k4_r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span>
+    <span class="n">B_phi_next</span> <span class="o">=</span> <span class="n">B_phi</span> <span class="o">+</span> <span class="p">(</span><span class="n">k1_phi</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k2_phi</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k3_phi</span> <span class="o">+</span> <span class="n">k4_phi</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span>
+    
+    <span class="k">return</span> <span class="n">Br_next</span><span class="p">,</span> <span class="n">B_phi_next</span>
 </pre></div>
 </div>
 </div>
@@ -484,6 +509,86 @@ document.write(`
 <span class="c1">#B_phi = np.random.randint(1,5,*shape)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># EVOLUTION OF Br and B_phi</span>
+<span class="c1"># Store the evolution of magnetic field at different radial positions</span>
+<span class="n">Br_evolution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nr</span><span class="p">))</span>
+<span class="n">B_phi_evolution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nr</span><span class="p">))</span>
+
+<span class="c1">#imposing vacuum boundary conditions</span>
+<span class="n">boundary_condition</span><span class="p">(</span><span class="n">Br_evolution</span><span class="p">,</span> <span class="n">B_phi_evolution</span><span class="p">)</span>
+
+<span class="c1">#boundary_conditions2(Br_evolution)</span>
+<span class="c1"># Time-stepping scheme using Runge-Kutta</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">Br_evolution</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">Br</span><span class="p">)</span>
+    <span class="n">B_phi_evolution</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">B_phi</span><span class="p">)</span>
+    <span class="n">Br</span><span class="p">,</span> <span class="n">B_phi</span> <span class="o">=</span> <span class="n">RK4</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Br</span><span class="p">,</span><span class="n">B_phi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the evolution of magnetic field at different radial positions over time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Br_evolution</span><span class="p">[:,</span> <span class="p">::</span><span class="n">Nr</span><span class="o">//</span><span class="mi">15</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Br (mag)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Evolution of Br at Different Radial Positions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;r=</span><span class="si">{</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nr</span><span class="p">,</span> <span class="n">Nr</span><span class="o">//</span><span class="mi">15</span><span class="p">)])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">B_phi_evolution</span><span class="p">[:,</span> <span class="p">::</span><span class="n">Nr</span><span class="o">//</span><span class="mi">15</span><span class="p">]),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Evolution curve for B_phi&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;B_Φ (mag)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Evolution of B_Φ at Different Radial Positions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;r=</span><span class="si">{</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nr</span><span class="p">,</span> <span class="n">Nr</span><span class="o">//</span><span class="mi">15</span><span class="p">)])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c1e112c12ba086d4b623cfccccdd40fb16c53e6be5a4e6b223ad905fb68c9bf7.png" src="_images/c1e112c12ba086d4b623cfccccdd40fb16c53e6be5a4e6b223ad905fb68c9bf7.png" />
+<img alt="_images/f6f7a0ce5683568c661ff2c52e83e1588bb5b81892f57db69ce6192394e1cac3.png" src="_images/f6f7a0ce5683568c661ff2c52e83e1588bb5b81892f57db69ce6192394e1cac3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Spatial evolution at certain times</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">//</span> <span class="mi">15</span><span class="p">):</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Br_evolution</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Time = </span><span class="si">{</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Br(mag)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Radial distance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spatial evolution of Br at different times&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#Spatial evolution at certain times</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">//</span> <span class="mi">15</span><span class="p">):</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">B_phi_evolution</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Time = </span><span class="si">{</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;B_Φ(mag)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Radial distance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spatial evolution of B_Φ at different times&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6078de96d86a989b2f0439f72083906d031b4f220fdb7e2e3e37d71bd52df81b.png" src="_images/6078de96d86a989b2f0439f72083906d031b4f220fdb7e2e3e37d71bd52df81b.png" />
+<img alt="_images/a48fa0430785eb06f4d5f7ec4082d95f2601d399530b26a6e56a651d96ddff97.png" src="_images/a48fa0430785eb06f4d5f7ec4082d95f2601d399530b26a6e56a651d96ddff97.png" />
 </div>
 </div>
 </section>
