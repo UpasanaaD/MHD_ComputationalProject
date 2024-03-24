@@ -12,4 +12,4 @@ kernelspec:
   name: python3
 ---
 
-<img src="programming.gif" alt="Computer man" style="width:48px;height:48px;">
+<img src="animationSine.gif" alt="Computer man" style="width:48px;height:48px;">
