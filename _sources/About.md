@@ -1,7 +1,7 @@
 # Overview of project
 I am Upasana, a 4th year student affiliated to the School of Physical Sciences, National Institute of Science Education and Research, Bhubaneswar India. This computational project is as part of coursework for Plasma Physics and Magnetohydrodynamics taken by Dr Luke Chamandy at the same institute. 
 
-We are expected to solve numerically the mean-field galactic dynamo equations derived using the first order smoothing approximation, $$E = \alpha B − \eta_T \nabla \times B$$, in the kinematic regime. The project has been divided into three tasks:
+We are expected to solve numerically the mean-field galactic dynamo equations derived using the first order smoothing approximation, $E = \alpha B − \eta_T \nabla \times B$, in the kinematic regime. The project has been divided into three tasks:
 
 ## Task 1:
 

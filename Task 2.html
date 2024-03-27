@@ -405,26 +405,30 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#constants</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#constants and paramters</span>
+
 <span class="n">eta_t</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># η_T estimated as η_t because η is microscopic</span>
 <span class="n">h_0</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#typical disk scale in Mpc</span>
 <span class="n">t_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">eta_t</span>
-<span class="n">Omega</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Omega has units of 1/t0</span>
-<span class="n">Alpha</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Alpha has units of h0/t0</span>
+<span class="c1">#Omega = 1/t_0 #Omega has units of 1/t0</span>
+<span class="c1">#Alpha = h/t_0 #Alpha has units of h0/t0</span>
 <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">t_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">eta_t</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">Omega</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Omega has units of 1/t0</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">Alpha</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">t_0</span> <span class="c1">#Alpha has units of h0/t0</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="ne">NameError</span>: name &#39;h&#39; is not defined
+<span class="c1">#Omega(r) for Brandt Rotation Curve</span>
+<span class="k">def</span> <span class="nf">Omega</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">Omega_0</span> <span class="o">=</span> <span class="mi">130</span> <span class="c1">#in km/s/kpc</span>
+    <span class="n">r_Om</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#in kpc</span>
+    <span class="k">return</span> <span class="n">Omega_0</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">r</span><span class="o">/</span><span class="n">r_Om</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">h_D</span> <span class="o">=</span> <span class="mf">0.35</span> <span class="c1">#in kpc</span>
+    <span class="n">r_D</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#in kpc</span>
+    <span class="k">return</span> <span class="n">h_D</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">r</span><span class="o">/</span><span class="n">r_D</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="k">def</span> <span class="nf">Alpha</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#in Myr</span>
+    <span class="n">vrms</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#in km/s</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">vrms</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Omega</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">h</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -439,7 +443,7 @@ document.write(`
 <span class="n">dr</span> <span class="o">=</span> <span class="n">R_max</span> <span class="o">/</span> <span class="n">Nr</span>
 
 <span class="c1"># Time parameters</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># Increased total time</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># Total time (in Myr)</span>
 <span class="n">Nt</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1">#Total time steps</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="n">Nt</span>
 </pre></div>
@@ -461,10 +465,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using numpy&#39;s gradient function which itself uses a central differencing method</span>
 <span class="k">def</span> <span class="nf">FDM_r</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Br</span><span class="p">,</span><span class="n">B_phi</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">Br</span><span class="p">,</span> <span class="n">dr</span><span class="p">),</span> <span class="n">dr</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Br</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">Alpha</span><span class="o">*</span><span class="n">B_phi</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">h_0</span><span class="p">)</span>
+    <span class="n">h_0</span><span class="o">=</span><span class="n">h</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">Alpha</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">Br</span><span class="p">,</span> <span class="n">dr</span><span class="p">),</span> <span class="n">dr</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Br</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">B_phi</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">h_0</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">FDM_phi</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">B_r</span><span class="p">,</span><span class="n">B_phi</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">B_phi</span><span class="p">,</span> <span class="n">dr</span><span class="p">),</span> <span class="n">dr</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">B_phi</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">q</span><span class="o">*</span><span class="n">Omega</span><span class="o">*</span><span class="n">Br</span>
+    <span class="n">h_0</span><span class="o">=</span><span class="n">h</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">Omega</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">B_phi</span><span class="p">,</span> <span class="n">dr</span><span class="p">),</span> <span class="n">dr</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">B_phi</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">q</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">Br</span>
 </pre></div>
 </div>
 </div>
@@ -504,7 +512,7 @@ document.write(`
 
 <span class="c1">#Initialising the B_phi field</span>
 <span class="n">B_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">R</span><span class="p">)</span><span class="o">/</span><span class="n">R_max</span><span class="p">)</span>
-<span class="c1">#B_phi = np.exp(R/R_max)</span>
+<span class="c1">#B_phi = np.exp(R/R_max)h_0</span>
 <span class="c1">#B_phi = np.tanh(-R/R_max)</span>
 <span class="c1">#B_phi = np.random.randint(1,5,*shape)</span>
 </pre></div>
@@ -527,6 +535,34 @@ document.write(`
     <span class="n">Br_evolution</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">Br</span><span class="p">)</span>
     <span class="n">B_phi_evolution</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">B_phi</span><span class="p">)</span>
     <span class="n">Br</span><span class="p">,</span> <span class="n">B_phi</span> <span class="o">=</span> <span class="n">RK4</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Br</span><span class="p">,</span><span class="n">B_phi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_25240/2085948018.py:19: RuntimeWarning: overflow encountered in square
+  return h_D*(1+(r/r_D)**2)**0.5
+/tmp/ipykernel_25240/2085948018.py:14: RuntimeWarning: overflow encountered in square
+  return Omega_0/((1+(r/r_Om)**2)**0.5)
+/tmp/ipykernel_25240/3308425213.py:5: RuntimeWarning: overflow encountered in multiply
+  return np.gradient((1/R)*np.gradient(R*Br, dr), dr) - ((np.pi)**2)*Br/(4*h_0**2) - 2*alpha*B_phi/(np.pi*h_0)
+/home/upasana/anaconda3/lib/python3.10/site-packages/numpy/lib/function_base.py:1235: RuntimeWarning: invalid value encountered in subtract
+  out[tuple(slice1)] = (f[tuple(slice4)] - f[tuple(slice2)]) / (2. * ax_dx)
+/tmp/ipykernel_25240/3308425213.py:10: RuntimeWarning: overflow encountered in multiply
+  return np.gradient((1/R)*np.gradient(R*B_phi, dr), dr) - ((np.pi)**2)*B_phi/(4*h_0**2) - q*omega*Br
+/tmp/ipykernel_25240/3308425213.py:5: RuntimeWarning: invalid value encountered in divide
+  return np.gradient((1/R)*np.gradient(R*Br, dr), dr) - ((np.pi)**2)*Br/(4*h_0**2) - 2*alpha*B_phi/(np.pi*h_0)
+/tmp/ipykernel_25240/3308425213.py:5: RuntimeWarning: invalid value encountered in multiply
+  return np.gradient((1/R)*np.gradient(R*Br, dr), dr) - ((np.pi)**2)*Br/(4*h_0**2) - 2*alpha*B_phi/(np.pi*h_0)
+/tmp/ipykernel_25240/3308425213.py:10: RuntimeWarning: invalid value encountered in multiply
+  return np.gradient((1/R)*np.gradient(R*B_phi, dr), dr) - ((np.pi)**2)*B_phi/(4*h_0**2) - q*omega*Br
+/tmp/ipykernel_25240/3308425213.py:10: RuntimeWarning: invalid value encountered in divide
+  return np.gradient((1/R)*np.gradient(R*B_phi, dr), dr) - ((np.pi)**2)*B_phi/(4*h_0**2) - q*omega*Br
+/home/upasana/anaconda3/lib/python3.10/site-packages/numpy/lib/function_base.py:1256: RuntimeWarning: invalid value encountered in double_scalars
+  out[tuple(slice1)] = (f[tuple(slice2)] - f[tuple(slice3)]) / dx_0
+/tmp/ipykernel_25240/3308425213.py:10: RuntimeWarning: invalid value encountered in subtract
+  return np.gradient((1/R)*np.gradient(R*B_phi, dr), dr) - ((np.pi)**2)*B_phi/(4*h_0**2) - q*omega*Br
+/tmp/ipykernel_25240/3308425213.py:5: RuntimeWarning: invalid value encountered in subtract
+  return np.gradient((1/R)*np.gradient(R*Br, dr), dr) - ((np.pi)**2)*Br/(4*h_0**2) - 2*alpha*B_phi/(np.pi*h_0)
 </pre></div>
 </div>
 </div>
@@ -556,8 +592,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c1e112c12ba086d4b623cfccccdd40fb16c53e6be5a4e6b223ad905fb68c9bf7.png" src="_images/c1e112c12ba086d4b623cfccccdd40fb16c53e6be5a4e6b223ad905fb68c9bf7.png" />
-<img alt="_images/f6f7a0ce5683568c661ff2c52e83e1588bb5b81892f57db69ce6192394e1cac3.png" src="_images/f6f7a0ce5683568c661ff2c52e83e1588bb5b81892f57db69ce6192394e1cac3.png" />
+<img alt="_images/a2884c356da6b12513e74ef38085852ac0db341511bd2065497965bd44a9953c.png" src="_images/a2884c356da6b12513e74ef38085852ac0db341511bd2065497965bd44a9953c.png" />
+<img alt="_images/edaf739dfb4b5c7adc256acaafa8bc03161ae872dc5f027fdbc3e008ed4c861c.png" src="_images/edaf739dfb4b5c7adc256acaafa8bc03161ae872dc5f027fdbc3e008ed4c861c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -587,8 +623,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6078de96d86a989b2f0439f72083906d031b4f220fdb7e2e3e37d71bd52df81b.png" src="_images/6078de96d86a989b2f0439f72083906d031b4f220fdb7e2e3e37d71bd52df81b.png" />
-<img alt="_images/a48fa0430785eb06f4d5f7ec4082d95f2601d399530b26a6e56a651d96ddff97.png" src="_images/a48fa0430785eb06f4d5f7ec4082d95f2601d399530b26a6e56a651d96ddff97.png" />
+<img alt="_images/25a549ca305d040c4b24217dd2bcd41815208332a775db9e2af88e0213d4f9c1.png" src="_images/25a549ca305d040c4b24217dd2bcd41815208332a775db9e2af88e0213d4f9c1.png" />
+<img alt="_images/80a43c13b56e8e0710bdffb32d69c690e9eb6c53e4975a94c2e38a8b50856200.png" src="_images/80a43c13b56e8e0710bdffb32d69c690e9eb6c53e4975a94c2e38a8b50856200.png" />
 </div>
 </div>
 </section>
